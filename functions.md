@@ -55,7 +55,7 @@ def convert_column_to_number_safely(data, *columns, can_be_changed_show_number=1
         # Смена типа данных всего столбца
         if cant_be_changed.sum() == 0:
             if type == 'int' and data[column].isna().sum() == 0:
-                data = data[column].astype('int')
+                data[column] = data[column].astype('int')
             else:
                 data[column] = pd.to_numeric(data[column], errors='coerce')
 
